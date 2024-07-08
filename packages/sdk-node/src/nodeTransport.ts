@@ -24,24 +24,12 @@
 
  */
 
+import type { Request } from '@cypress/request';
+import rq from '@cypress/request';
 import nodeCrypto from 'crypto';
-import type { Request } from 'request';
-import rq from 'request';
 
-import rp from 'request-promise-native';
-import type { Readable } from 'readable-stream';
-import { PassThrough } from 'readable-stream';
-import { StatusCodeError } from 'request-promise-native/errors';
-import {
-  BaseTransport,
-  LookerAppId,
-  ResponseMode,
-  agentPrefix,
-  defaultTimeout,
-  responseMode,
-  safeBase64,
-  trace,
-} from '@looker/sdk-rtl';
+import rp from '@cypress/request-promise';
+import { StatusCodeError } from '@cypress/request-promise/errors';
 import type {
   Authenticator,
   HttpMethod,
@@ -53,6 +41,18 @@ import type {
   SDKResponse,
   Values,
 } from '@looker/sdk-rtl';
+import {
+  BaseTransport,
+  LookerAppId,
+  ResponseMode,
+  agentPrefix,
+  defaultTimeout,
+  responseMode,
+  safeBase64,
+  trace,
+} from '@looker/sdk-rtl';
+import type { Readable } from 'readable-stream';
+import { PassThrough } from 'readable-stream';
 
 const utf8 = 'utf8';
 
